@@ -25,8 +25,10 @@ should drop you into a venv shell any time after the setup.
 * served CAPTCHA decided by `/captcha/name`
     * `?modifiers=a,b,c` used for the obvious
     * e.g. `/an5char?modifiers=distort,obstruct` serves a 5-character alphanumeric CAPTCHA that has distorting and obstructive effects applied to it
-    * all CAPTCHA responses should have a randomly generated token given through the `X-Research-Token` header
-        * this is used as a naive session tracker
+    * all calid CAPTCHA responses should be JSON with two attributes
+        * `challenge`, which stores the challenge stored as a data URI
+        * `token`, which stores a randomly generated token
+            * this is used as a naive session tracker
 * solutions should be POSTed to `/solutions` with the given token value and the answer, `200` means correct and `403` means incorrect
 
 ### internal behavior:
