@@ -8,4 +8,8 @@ def create_app():
 
     app.register_blueprint(routes.bp)
 
+    @app.after_request
+    def universal_header(resp):
+        resp.headers["X-Research"] = "AP Research"
+        return resp
     return app
