@@ -19,6 +19,8 @@ def captchas():
 @bp.route("/captcha/<type>")
 def captcha(type):
     chal = t.fetch_challenge(type)
+    if not chal:
+        return make_response("oops~ (fetch_challenge failed, probably the fault of the module)", 500)
     return {"challenge": chal[0], "token": chal[1]}
 
 @bp.route("/solution")

@@ -22,7 +22,7 @@ class target_model():
 
     def verify_solution(self, proposed, token):
         if not(proposed) or not(token):
-            return (False, "missing solution or token")
+            return (False, "missing proposal or token")
         if not self.queue.get(token):
             return (False, "invalid token")
         if (datetime.now().timestamp() - self.queue[token][1]) > 60:
