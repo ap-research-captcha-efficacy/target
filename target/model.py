@@ -10,9 +10,9 @@ class target_model():
         
         self.__load_types()
 
-    def fetch_challenge(self, type):
+    def fetch_challenge(self, type, mod = None):
         try:
-            (challenge, solution) = getattr(self.types_loaded[type], "generate")()
+            (challenge, solution) = getattr(self.types_loaded[type], "generate")(mod)
             token = token_hex(64)
             self.queue[token] = (solution, datetime.now().timestamp())
             return (challenge, token)
