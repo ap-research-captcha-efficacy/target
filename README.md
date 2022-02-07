@@ -19,7 +19,7 @@ should drop you into a venv shell any time after the setup.
 
 ## design spec
 
-designed so that it *emulates* a real environment without *replicate* (e.g. the use of tokens handled
+designed so that it *emulates* a real environment without *replication* (e.g. the use of tokens handled
 userside is better for us when we're writing solver suites than the usual session values)
 
 ### outward behavior:
