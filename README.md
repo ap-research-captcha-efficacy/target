@@ -29,7 +29,7 @@ userside is better for us when we're writing solver suites than the usual sessio
     * `?modifiers=a,b,c` used for the obvious
     * e.g. `/an5char?modifiers=distort,obstruct` serves a 5-character alphanumeric CAPTCHA that has distorting and obstructive effects applied to it
     * all valid CAPTCHA responses should be JSON with two attributes
-        * `challenge`, which stores the challenge stored as a data URI
+        * `challenge`, which is the challenge stored as a data URI
         * `token`, which stores a randomly generated token
             * this is used as a naive session tracker
 * solutions should be POSTed to `/solutions` with the given token value and the answer, `200` means correct and `401` means incorrect
