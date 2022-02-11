@@ -25,7 +25,7 @@ class target_model():
             return (False, "missing proposal or token")
         if not self.queue.get(token):
             return (False, "invalid token")
-        if (datetime.now().timestamp() - self.queue[token][1]) > 60:
+        if (datetime.now().timestamp() - self.queue[token][1]) > 120:
             self.queue.pop(token)
             return (False, "token timed out")
         if not(self.queue[token][0] == proposed):
