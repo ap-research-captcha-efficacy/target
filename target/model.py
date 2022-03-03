@@ -29,6 +29,7 @@ class target_model():
             self.queue.pop(token)
             return (False, "token timed out")
         if not(self.queue[token][0] == proposed):
+            print(list(self.queue[token][0]), list(proposed), "aaaah" if self.queue[token][0] == proposed else "bbbbh")
             self.queue.pop(token)
             return (False, "incorrect")
         passport = (token_hex(64), datetime.now().timestamp())
