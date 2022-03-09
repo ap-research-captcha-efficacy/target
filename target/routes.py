@@ -14,11 +14,20 @@ def root():
 
 @bp.route("/captchas")
 def captchas():
-    return {"captchas": list(t.types_loaded.keys())}
+    res = []
+    for type in t.types_loaded.keys():
+        res.append(type)
+        try:
+            mods = getattr(t.types_loaded[type], "valid_mods")
+            for mod in mods:
+                res.append(type+"?modifiers="+mod)
+        except Exception as e:
+            print("shits fucked fampai", e)
+    return {"captchas": res}
 
 @bp.route("/captcha/<type>")
 def captcha(type):
-    chal = t.fetch_challenge(type)
+    chal = t.fetch_challenge(type, mod = request.args.get("modifiers"))
     if not chal:
         return make_response("oops~ (fetch_challenge failed, probably the fault of the module)", 500)
     return {"challenge": chal[0], "token": chal[1]}
