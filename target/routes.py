@@ -22,7 +22,7 @@ def captchas():
             for mod in mods:
                 res.append(type+"?modifiers="+mod)
         except Exception as e:
-            print("shits fucked fampai", e)
+            print(e)
     return {"captchas": res}
 
 @bp.route("/captcha/<type>")
