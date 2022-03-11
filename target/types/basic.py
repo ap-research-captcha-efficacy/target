@@ -17,7 +17,7 @@ def generate(mod):
         for i in range(0, 10):
             id.line((randint(0, 300), randint(0, 100), randint(0, 300), randint(0, 100)), fill=128)
     font_large = ImageFont.truetype("fonts/DejaVuSansMono.ttf", size=20)
-    id.text((120+randint(-20,20), 40+randint(-20,20)), key, font=font_large, fill=(55, 55, 55))
+    id.text((120+randint(-20,20), 40+randint(-20,20)), key, font=font_large, fill=(0, 0, 0))
     
     img.save(data, format="PNG")
     data.seek(0)
